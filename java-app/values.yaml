@@ -1,0 +1,24 @@
+deployment:
+  appname: my-java-app
+  imageRegistry: jaykay84
+  imageName: java-app
+  imageVersion: mysqldb
+  pullPolicy: Always
+  containerPort: 8080
+
+service:
+  port: 8080
+
+secret:
+  Name: my-secrets
+  rootPassword: highlysecurepw
+  databaseName: mydatabase
+  username: mydb_user
+  password: mydb_pw
+
+configMap:
+  databaseServer: mysql-service
+
+ingress:
+  className: nginx
+  hostname: my-java-app.com
