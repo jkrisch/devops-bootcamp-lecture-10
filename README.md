@@ -29,6 +29,17 @@ kubectl apply -f mysql_statefulset.yaml
 ```
 
 ## Exercise 3 - Deploy your Java Application with 2 replicas
+The java app was created cloning the repo [https://gitlab.com/devops-bootcamp3/bootcamp-java-mysql](https://gitlab.com/devops-bootcamp3/bootcamp-java-mysql) and using the [Dockerfile](Dockerfile):
+``` bash
+cd bootcamp-java-app
+./gradlew clean build
+cd ..
+docker build -t jaykay84/java-app:mysqldb .
+docker login
+#adding credentials
+docker push
+
+```
 Create the following file:
 * [java-app_service](java-app_service.yaml)
 * [java-app_configmap](java-app_configmap.yaml)
